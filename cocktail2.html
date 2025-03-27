@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Cocktails</title>
+    <link rel="stylesheet" href="cocktail.css">
+</head>
+<body>
+
+    <header>
+        <h1>Magical Cocktails</h1>
+        <p>Crafting unforgettable cocktail experiences for every occasion.</p>
+    </header>
+
+    <nav>
+        <a href="cocktail2.html">Home</a>
+        <a href="cocktailsimages.html">Cocktails</a>
+        <a href="events.html">Events</a>
+        <a href="events.html">Roadtrips</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1556774219-99b7bb76cc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvY2t0YWlsc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="hero image" width="1300" height="400">
+        <h1>Elevate Your Celebration</h1>
+        <p>From intimate gatherings to grand weddings, we bring the magic of handcrafted cocktails to you.</p>
+    </div>
+
+    <div class="container">
+        <h2>Our Signature Cocktails</h2>
+        <div class="cocktail-grid">
+            <div class="cocktail-item">
+                <img src="images/cocktail1.jpeg" alt="Cocktail 1">
+                <h3>The Enchanted Elixir</h3>
+                <p>A refreshing blend of gin, elderflower liqueur, and sparkling wine.</p>
+            </div>
+            <div class="cocktail-item">
+                <img src="images/cocktail2.jpeg" alt="Cocktail 2">
+                <h3>Dragon's Breath Margarita</h3>
+                <p>A fiery twist on the classic margarita with a hint of chili.</p>
+            </div>
+            <div class="cocktail-item">
+                <img src="images/cocktail3.jpeg" alt="Cocktail 3"> 
+                <h3>Mermaid's Kiss</h3>
+                <p>A tropical delight with rum, coconut cream, and pineapple juice.</p>
+            </div>
+            <div class="cocktail-item">
+                <img src="images/cocktail5.jpeg" alt="Cocktail 4"> <!-- Replace with actual image path -->
+                <h3>Midnight Magic Martini</h3>
+                <p>A sophisticated martini with vodka, blackcurrant liqueur, and a hint of lime.</p>
+            </div>
+        </div>
+
+        <div class="events-section">
+            <h2>Events We Cater To</h2>
+            <ul>
+                <li>Weddings</li>
+                <li>Corporate Events</li>
+                <li>Family Gatherings</li>
+                <li>Roadtrips & Adventures</li>
+                <li>Birthday Parties</li>
+                <li>...and more!</li>
+            </ul>
+            <p>Let us create a custom cocktail menu for your special event.</p>
+            <button onclick="toggleRequestForm()">Request a Quote</button> <!-- Button to Show Request Form -->
+
+            <div> 
+
+            </div>
+
+
+
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Ready to add some magic to your next event?</p>
+            <p>Phone: (555) 123-4567</p>
+            <p>Email: info@magicalcocktails.com</p>
+            <p>Address: 123 Main Street, Anytown, USA</p>
+
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Magical Cocktails. All rights reserved.
+    </footer>
+
+    <script>
+      // Toggle Function for Request Event Form
+      function toggleRequestForm() {
+        const form = document.getElementById('requestEventForm');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      }
+
+      //Toggle Function for Add cocktail
+      function toggleAddCocktailForm(){
+        const cocktailform = document.getElementById('addCocktailForm');
+        cocktailform.style.display = cocktailform.style.display === 'none' ? 'block' : 'none';
+      }
+
+      //Toggle Function for Add Events
+      function toggleAddEventForm(){
+        const eventform = document.getElementById('addEventForm');
+        eventform.style.display = eventform.style.display === 'none' ? 'block': 'none';
+      }
+
+       // Event Listener for Request Event Form Submission
+      document.getElementById('eventRequestForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
+
+        //Get Form Data
+        const eventName = document.getElementById('eventName').value;
+        const eventDate = document.getElementById('eventDate').value;
+        const eventEmail = document.getElementById('eventEmail').value;
+        const eventDescription = document.getElementById('eventDescription').value;
+
+        // You'd typically send this data to your server using an AJAX request (e.g., fetch or XMLHttpRequest)
+        console.log('Event Request Submitted:', {
+                eventName: eventName,
+                eventDate: eventDate,
+                eventEmail: eventEmail,
+                eventDescription: eventDescription
+        });
+        alert('Event request submitted successfully!'); // Simple feedback for now
+
+        //Clear Form
+        document.getElementById('eventRequestForm').reset();
+        toggleRequestForm();
+      });
+
+        // Event Listener for Add Cocktail Form Submission
+      document.getElementById('newCocktailForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent page reload
+
+        // Get Form Data
+        const cocktailName = document.getElementById('cocktailName').value;
+        const cocktailDescription = document.getElementById('cocktailDescription').value;
+        const cocktailImage = document.getElementById('cocktailImage').value; // URL
+
+        // You'd typically send this data to your server using an AJAX request
+        console.log('New Cocktail Submitted:', {
+                cocktailName: cocktailName,
+                cocktailDescription: cocktailDescription,
+                cocktailImage: cocktailImage
+        });
+        alert('New cocktail added successfully!'); // Simple feedback
+
+        // Clear Form and Hide
+        document.getElementById('newCocktailForm').reset();
+        toggleAddCocktailForm();
+      });
+
+        // Event Listener for Add Event Form Submission
+      document.getElementById('newEventForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const eventName = document.getElementById('eventName').value;
+            const eventDescription = document.getElementById('eventDescription').value;
+
+            // You'd typically send this data to your server
+            console.log('New Event Type Submitted:', {
+                eventName: eventName,
+                eventDescription: eventDescription
+            });
+            alert('New event type added successfully!');
+
+            document.getElementById('newEventForm').reset();
+            toggleAddEventForm();
+      });
+    </script>
+
+</body>
+</html>
